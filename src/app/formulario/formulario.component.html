@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4" >
+      
+    
+        <form [formGroup]="formulario" (ngSubmit)="metodo()" novalidate>
+            <div class="mb-3">
+                <label for="exampleInputUser" class="form-label" >Codigo Producto</label>
+                <input type="email" class="form-control" id="exampleInputusuario" formControlName="codigo" aria-describedby="emailHelp">
+                <div id="usuariolHelp" class="form-text">Ingrese Codigo Producto</div>
+              </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label" >Nombre Producto</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" formControlName="nombre" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Ingrese nombre producto</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputTelefono" class="form-label" >Precio</label>
+              <input type="text" class="form-control" formControlName="precio" id="exampleInputPassword1">
+              <div id="telefonoHelp" class="form-text">Ingrese el Precio</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputTelefono" class="form-label" >Descripcion</label>
+                <input type="text" class="form-control" formControlName="descripcion" id="exampleInputPassword1">
+                <div id="telefonoHelp" class="form-text">Ingrese su descripción</div>
+              </div>
+           
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+          </form>
+          <br>
+          <button  class="btn btn-primary" (click)="actualizar()">Actualizar</button>
+          <br><br>
+                    <button  class="btn btn-primary" (click)="eliminar()">Eliminar</button>
+
+    
+          <div> {{datos}}</div>
+        </div>
+
+
+        <div>
+            <h1>Orden de Compra</h1>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Accion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let elemento of lista">
+                    <th scope="row">{{elemento.codigo}}</th>
+                    <td>{{elemento.nombre}}</td>
+                    <td>{{elemento.precio}}</td>
+                    <td>{{elemento.descripcion}}</td>
+                    <td><button (click)="eliminar()">Eliminar</button></td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+
+        </div>
+    </div>
